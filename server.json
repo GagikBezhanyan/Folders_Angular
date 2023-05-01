@@ -1,0 +1,28 @@
+{
+  "folders": [
+    {
+      "icon": "/assets/images/folder_empty.png",
+      "name": "New Folder",
+      "subFolders": [],
+      "id": 1
+    },
+    {
+      "icon": "/assets/images/folder_empty.png",
+      "name": "New Folder",
+      "subFolders": [],
+      "id": 2
+    },
+    {
+      "icon": "/assets/images/folder_empty.png",
+      "name": "New Folder",
+      "subFolders": [],
+      "id": 3
+    },
+    {
+      "icon": "/assets/images/folder_empty.png",
+      "name": "Hello",
+      "subFolders": [],
+      "id": 4
+    }
+  ]
+}

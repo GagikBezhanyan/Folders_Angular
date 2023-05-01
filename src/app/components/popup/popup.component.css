@@ -1,0 +1,15 @@
+.popup {
+    position: absolute;
+    display: none;
+    padding: 10px 25px;
+    font-family: Verdana, Tahoma, sans-serif;
+    background-color: #dbd3d3;
+    box-shadow: 5px 5px 10px gray;
+    cursor: pointer;
+}
+.popup:hover {
+    background-color: white;
+}
+.popup.show {
+    display: block;
+}
