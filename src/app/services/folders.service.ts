@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class FoldersService {
-  private url = environment.apiUrl + environment.foldersUrl
+  private url = environment.apiUrl + environment.foldersUrl;
 
   constructor(public http: HttpClient) { }
 
@@ -15,15 +15,14 @@ export class FoldersService {
     return this.http.get<Type>(this.url, {headers: header});
   }
   
-
-  postData<Type>( body: Type) {
+  postData<Type>(body: Type) {
     let header = new HttpHeaders({'Accept-language': 'en'});
     return this.http.post<Type>(this.url, body, {headers: header})
   }
 
-  putData<Type>( url: string, body: Type) {
+  putData<Type>(num: number | undefined, body: Type) {
     let header = new HttpHeaders({'Content-type': 'application/json'});
-    return this.http.put<Type>(url, body, {headers: header})
+    return this.http.put<Type>(`${this.url}/${num}`, body, {headers: header})
   }
 
 }

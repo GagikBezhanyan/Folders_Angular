@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { DesktopComponent } from './components/desktop/desktop.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FolderComponent } from './components/folder/folder.component';
-import { PopupComponent } from './components/popup/popup.component';
 
 @NgModule({
   declarations: [

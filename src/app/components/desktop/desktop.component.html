@@ -1,8 +1,9 @@
 <div class="wrapper" (click)="closePopup($event)">
     <h1 class="title">Folders</h1>
     <div class="items" (contextmenu)="openPopup($event)">
-        <div class="item" *ngFor="let key of data, let l = last" (dblclick)="openFolder(key.name)">
+        <div class="item" *ngFor="let key of data, let l = last" (dblclick)="openFolder(key.name, key.subFolders)">
             <img class="icon" [src]="key.icon">
+
             <p *ngIf="!l || isFolderNameGiven" class="text">{{key.name}}</p>
             <form [formGroup]="form" (ngSubmit)="save()">
               <input *ngIf="l && !isFolderNameGiven" class="text_input" type="text" [formControlName]="'folderName'">

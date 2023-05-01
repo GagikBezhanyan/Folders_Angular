@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { IFolder } from 'src/app/models/model';
-import { FoldersService } from 'src/app/services/request.service';
+import { FoldersService } from 'src/app/services/folders.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -60,7 +60,7 @@ export class DesktopComponent implements OnInit{
       name: this.form.value.folderName,
       subFolders: []
     }
-    this.foldersService.putData<IFolder>(`${this.url}/${this.id}`, newFolder).subscribe((res: IFolder) => {1
+    this.foldersService.putData<IFolder>(this.id, newFolder).subscribe((res: IFolder) => {1
       this.getFolders();
     })
   }
@@ -84,8 +84,8 @@ export class DesktopComponent implements OnInit{
     // }
   }
 
-  openFolder(name: string) {
-    console.log(name);
+  openFolder(name: string, subfolder: IFolder[]) {
+    this.data = subfolder;
   }
 
 }
