@@ -10,6 +10,11 @@ export class FoldersService {
 
   constructor(public http: HttpClient) { }
 
+  // getData<Type>() {
+  //   let header = new HttpHeaders({'Accept-language': 'en'});
+  //   return this.http.get<Type>(`${this.url}/1?_fields=subFolders`, {headers: header});
+  // }
+
   getData<Type>() {
     let header = new HttpHeaders({'Accept-language': 'en'});
     return this.http.get<Type>(this.url, {headers: header});
