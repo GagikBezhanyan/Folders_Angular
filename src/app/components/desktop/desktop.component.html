@@ -1,15 +1,24 @@
-<div class="wrapper" (click)="closePopup($event)">
+<div class="wrapper" (click)="closePopup()">
     <h1 class="title">Folders</h1>
+    <div class="tools">
+        <div class="back">
+            <mat-icon class="undo" (click)="undo()">undo</mat-icon>
+        </div>
+        <div class="forward">
+            <mat-icon class="redo" (click)="redo()">redo</mat-icon>
+        </div>
+        <p class="paths">{{path}}</p>
+    </div>
     <div class="items" (contextmenu)="openPopup($event)">
-        <div class="item" *ngFor="let key of data, let l = last" (dblclick)="openFolder(key.name, key.subFolders)">
+        <div class="item" *ngFor="let key of data, let l = last" (dblclick)="openFolder(key)">
             <img class="icon" [src]="key.icon">
 
             <p *ngIf="!l || isFolderNameGiven" class="text">{{key.name}}</p>
-            <form [formGroup]="form" (ngSubmit)="save()">
-              <input *ngIf="l && !isFolderNameGiven" class="text_input" type="text" [formControlName]="'folderName'">
+            <form [formGroup]="form" (ngSubmit)="saveName()">
+                <input *ngIf="l && !isFolderNameGiven" class="text_input" type="text" [formControlName]="'folderName'" (click)="focusedInput($event)">
             </form>
         </div>
-            
+        
         <div class="popup" #popup (click)="createFolder($event)">
             New Folder
         </div>
